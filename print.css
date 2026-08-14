@@ -1,0 +1,41 @@
+/**
+ * Just a Reference print styles — keep prefix icons in print output
+ *
+ * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+.dokuwiki a.justareference-original,
+.dokuwiki a.justareference-reference,
+.dokuwiki a.justareference-self,
+.dokuwiki a.justareference-section {
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    padding: 0 0 0 1.4em;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.dokuwiki a.justareference-original {
+    background-image: url(images/original.svg);
+}
+
+.dokuwiki a.justareference-reference {
+    background-image: url(images/reference.svg);
+}
+
+.dokuwiki a.justareference-self {
+    background-image: url(images/self.svg);
+}
+
+.dokuwiki a.justareference-section {
+    background-image: url(images/section.svg);
+}
+
+[dir=rtl] .dokuwiki a.justareference-original,
+[dir=rtl] .dokuwiki a.justareference-reference,
+[dir=rtl] .dokuwiki a.justareference-self,
+[dir=rtl] .dokuwiki a.justareference-section {
+    background-position: right center;
+    padding: 0 1.4em 0 0;
+}
