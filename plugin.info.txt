@@ -1,0 +1,7 @@
+base   justareference
+author only9elias
+email  elias@noreply.blubb.app
+date   2026-08-14
+name   Just a Reference Plugin
+desc   Indicate whether a wiki-internal link is the original link or merely a reference
+url    https://github.com/only9elias/dokuwiki-plugin-justareference
