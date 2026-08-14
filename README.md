@@ -53,7 +53,9 @@ These match DokuWiki’s own namespace-default targets for `[[foo:bar:]]`:
 
 Example with `nsname`: a link to `dingdong:blubb:schakalaka` is original only
 on `dingdong:blubb:blubb`. A link to `dingdong:blubb:blubb` is original only
-on `dingdong:dingdong`.
+on `dingdong:dingdong` (when the computed owner would be the target itself,
+the plugin walks up one namespace so index pages are not their own owners).
+Root targets still have no owner.
 
 ## Link types
 

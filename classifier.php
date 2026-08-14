@@ -69,6 +69,11 @@ class justareference_classifier
     /**
      * Owner page ID for a non-root target, or null when the target is root.
      *
+     * The owner is the index page of the target’s parent namespace. If that
+     * index is the target itself (namespace page named like the namespace),
+     * walk up one level so e.g. dingdong:blubb:blubb is owned by
+     * dingdong:dingdong rather than by itself.
+     *
      * @param string $page cleaned page ID without hash
      * @return string|null
      */
@@ -79,6 +84,29 @@ class justareference_classifier
             return null;
         }
 
+        $owner = $this->indexOfNamespace($ns);
+        if ($owner === $page) {
+            $parent = getNS($ns);
+            if ($parent === false || $parent === '') {
+                return null;
+            }
+            $owner = $this->indexOfNamespace($parent);
+            if ($owner === $page) {
+                return null;
+            }
+        }
+
+        return $owner;
+    }
+
+    /**
+     * Index page of a namespace according to owner_mode.
+     *
+     * @param string $ns
+     * @return string
+     */
+    protected function indexOfNamespace($ns)
+    {
         $mode = $this->plugin->getConf('owner_mode');
         if ($mode === 'start') {
             global $conf;
